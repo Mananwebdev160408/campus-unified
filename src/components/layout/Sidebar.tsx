@@ -44,6 +44,8 @@ const navItems: NavItem[] = [
   { icon: FileText, label: 'Examinations', path: '/examinations', roles: ['student', 'faculty', 'college_admin'] },
   { icon: CreditCard, label: 'Finance', path: '/finance', roles: ['student', 'college_admin', 'super_admin'] },
   { icon: Briefcase, label: 'Placements', path: '/placements', roles: ['student', 'placement_officer', 'recruiter'] },
+  { icon: FileText, label: 'Resume Builder', path: '/resume-builder', roles: ['student'] },
+  { icon: FileText, label: 'AI Analyzer', path: '/resume-analyzer', roles: ['student'] },
   { icon: Building2, label: 'Organizations', path: '/organizations', roles: ['super_admin'] },
   { icon: UserCog, label: 'Faculty', path: '/faculty', roles: ['college_admin', 'super_admin'] },
   { icon: Shield, label: 'Admins', path: '/admins', roles: ['super_admin'] },
