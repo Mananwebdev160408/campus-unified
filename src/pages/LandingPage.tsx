@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroDashboard from '@/assets/hero-dashboard.jpg';
+import ThemeToggler from '@/components/ThemeToggler';
 
 const container = {
   hidden: { opacity: 0 },
@@ -53,6 +54,7 @@ export function LandingPage() {
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
             </div>
             <div className="flex items-center gap-3">
+              <ThemeToggler />
               <Button variant="ghost" size="sm" asChild>
                 <Link to="/onboarding">Sign In</Link>
               </Button>
