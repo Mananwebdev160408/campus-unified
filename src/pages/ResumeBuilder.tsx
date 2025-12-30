@@ -439,6 +439,7 @@ export default function ResumeBuilder() {
           </div>
         </TabsContent>
 
+        {/* Verification Tab */}
         <TabsContent value="verification" className="mt-6">
           <div className="max-w-2xl mx-auto">
             <motion.div
