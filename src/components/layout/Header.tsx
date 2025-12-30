@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bell, Search, User, ChevronDown, LogOut, Settings, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,6 +19,7 @@ interface HeaderProps {
 }
 
 export function Header({ user, sidebarCollapsed }: HeaderProps) {
+  const navigate = useNavigate();
   const [hasNotifications] = useState(true);
 
   const roleLabels: Record<string, string> = {
@@ -49,12 +51,22 @@ export function Header({ user, sidebarCollapsed }: HeaderProps) {
         {/* Right Section */}
         <div className="flex items-center gap-3 ml-auto">
           {/* Help */}
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-muted-foreground hover:text-foreground"
+            onClick={() => navigate('/help')}
+          >
             <HelpCircle className="w-5 h-5" />
           </Button>
 
           {/* Notifications */}
-          <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="relative text-muted-foreground hover:text-foreground"
+            onClick={() => navigate('/notifications')}
+          >
             <Bell className="w-5 h-5" />
             {hasNotifications && (
               <span className="absolute top-2 right-2 w-2 h-2 bg-destructive rounded-full" />
@@ -85,16 +97,19 @@ export function Header({ user, sidebarCollapsed }: HeaderProps) {
                 <p className="text-xs text-muted-foreground">{user.email}</p>
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/profile')}>
                 <User className="w-4 h-4 mr-2" />
                 View Profile
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/settings')}>
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-destructive focus:text-destructive">
+              <DropdownMenuItem 
+                className="text-destructive focus:text-destructive"
+                onClick={() => navigate('/auth')}
+              >
                 <LogOut className="w-4 h-4 mr-2" />
                 Sign Out
               </DropdownMenuItem>

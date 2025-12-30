@@ -44,6 +44,8 @@ const navItems: NavItem[] = [
   { icon: FileText, label: 'Examinations', path: '/examinations', roles: ['student', 'faculty', 'college_admin'] },
   { icon: CreditCard, label: 'Finance', path: '/finance', roles: ['student', 'college_admin', 'super_admin'] },
   { icon: Briefcase, label: 'Placements', path: '/placements', roles: ['student', 'placement_officer', 'recruiter'] },
+  { icon: FileText, label: 'Resume Builder', path: '/resume-builder', roles: ['student'] },
+  { icon: FileText, label: 'AI Analyzer', path: '/resume-analyzer', roles: ['student'] },
   { icon: Building2, label: 'Organizations', path: '/organizations', roles: ['super_admin'] },
   { icon: UserCog, label: 'Faculty', path: '/faculty', roles: ['college_admin', 'super_admin'] },
   { icon: Shield, label: 'Admins', path: '/admins', roles: ['super_admin'] },
@@ -62,13 +64,23 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
       )}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-sidebar-border">
-        <AnimatePresence mode="wait">
-          {!collapsed && (
+      <div className={cn(
+        "h-16 flex items-center border-b border-sidebar-border",
+        collapsed ? "justify-center px-2" : "justify-between px-4"
+      )}>
+        {collapsed ? (
+          <button
+            onClick={onToggle}
+            className="p-2 rounded-md hover:bg-sidebar-accent transition-colors"
+            title="Expand sidebar"
+          >
+            <ChevronRight className="w-5 h-5 text-sidebar-foreground" />
+          </button>
+        ) : (
+          <>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               className="flex items-center gap-3"
             >
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
@@ -76,18 +88,15 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
               </div>
               <span className="font-semibold text-sidebar-foreground">UniERP</span>
             </motion.div>
-          )}
-        </AnimatePresence>
-        <button
-          onClick={onToggle}
-          className="p-1.5 rounded-md hover:bg-sidebar-accent transition-colors"
-        >
-          {collapsed ? (
-            <ChevronRight className="w-4 h-4 text-sidebar-foreground" />
-          ) : (
-            <ChevronLeft className="w-4 h-4 text-sidebar-foreground" />
-          )}
-        </button>
+            <button
+              onClick={onToggle}
+              className="p-1.5 rounded-md hover:bg-sidebar-accent transition-colors"
+              title="Collapse sidebar"
+            >
+              <ChevronLeft className="w-4 h-4 text-sidebar-foreground" />
+            </button>
+          </>
+        )}
       </div>
 
       {/* Navigation */}
@@ -124,14 +133,6 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
         </ul>
       </nav>
 
-      {/* Collapsed Logo */}
-      {collapsed && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-primary-foreground" />
-          </div>
-        </div>
-      )}
     </aside>
   );
 }

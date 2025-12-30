@@ -12,9 +12,17 @@ import {
   Loader2,
   ArrowRight,
   Shield,
+  Plus,
+  Mail,
+  Phone,
+  Globe,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { toast } from 'sonner';
 import type { VerificationStatus, Organization } from '@/types';
 
 const mockOrganizations: Organization[] = [
@@ -23,13 +31,28 @@ const mockOrganizations: Organization[] = [
   { id: '3', name: 'Stanford Community College', location: 'Stanford, CA, USA', type: 'college', verified: true },
 ];
 
+type OnboardingStep = 'verify' | 'register-university' | 'register-admin';
+
 export function Onboarding() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<'verify' | 'register'>('verify');
+  const [step, setStep] = useState<OnboardingStep>('verify');
   const [orgName, setOrgName] = useState('');
   const [status, setStatus] = useState<VerificationStatus>('idle');
   const [verifiedOrg, setVerifiedOrg] = useState<Organization | null>(null);
   const [possibleMatches, setPossibleMatches] = useState<Organization[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // University registration form state
+  const [uniForm, setUniForm] = useState({
+    name: '',
+    type: 'university',
+    location: '',
+    address: '',
+    website: '',
+    email: '',
+    phone: '',
+    description: '',
+  });
 
   const handleVerify = async () => {
     if (!orgName.trim()) return;
@@ -68,14 +91,47 @@ export function Onboarding() {
     setPossibleMatches([]);
   };
 
-  const handleContinue = () => {
-    setStep('register');
+  const handleContinueToAdmin = () => {
+    setStep('register-admin');
   };
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleStartUniversityRegistration = () => {
+    setUniForm(prev => ({ ...prev, name: orgName }));
+    setStep('register-university');
+  };
+
+  const handleUniversitySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    toast.success('University registration submitted!', {
+      description: 'Your application will be reviewed within 2-3 business days.',
+    });
+    
+    // Create a pending organization
+    const newOrg: Organization = {
+      id: Date.now().toString(),
+      name: uniForm.name,
+      location: uniForm.location,
+      type: uniForm.type as 'university' | 'college',
+      verified: false,
+    };
+    
+    setVerifiedOrg(newOrg);
+    setIsSubmitting(false);
+    setStep('register-admin');
+  };
+
+  const handleAdminRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success('Registration complete!', {
+      description: 'Welcome to UniERP. Redirecting to dashboard...',
+    });
     // Navigate to dashboard after registration
-    navigate('/dashboard');
+    setTimeout(() => navigate('/dashboard'), 1000);
   };
 
   return (
@@ -213,9 +269,9 @@ export function Onboarding() {
                         </div>
                       </div>
                       <Button
-                        onClick={handleContinue}
+                        onClick={handleContinueToAdmin}
                         className="w-full mt-4"
-                        variant="success"
+                        variant="default"
                       >
                         Continue & Register
                         <ArrowRight className="w-4 h-4" />
@@ -262,18 +318,27 @@ export function Onboarding() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="p-4 rounded-xl bg-destructive/10 border border-destructive/20"
+                      className="p-4 rounded-xl bg-secondary border border-border"
                     >
                       <div className="flex items-start gap-3">
-                        <XCircle className="w-5 h-5 text-destructive mt-0.5" />
-                        <div>
+                        <XCircle className="w-5 h-5 text-muted-foreground mt-0.5" />
+                        <div className="flex-1">
                           <h3 className="font-semibold text-foreground">Institution Not Found</h3>
                           <p className="text-sm text-muted-foreground mt-1">
-                            We couldn't find this institution in our database. Please check the spelling or contact support for assistance.
+                            We couldn't find "{orgName}" in our database. Would you like to register your institution?
                           </p>
-                          <Button variant="outline" size="sm" className="mt-3">
-                            Contact Support
-                          </Button>
+                          <div className="flex gap-2 mt-4">
+                            <Button 
+                              onClick={handleStartUniversityRegistration}
+                              className="flex-1"
+                            >
+                              <Plus className="w-4 h-4 mr-2" />
+                              Register University
+                            </Button>
+                            <Button variant="outline" size="sm">
+                              Contact Support
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </motion.div>
@@ -282,14 +347,189 @@ export function Onboarding() {
 
                 <p className="text-center text-sm text-muted-foreground">
                   Already have an account?{' '}
-                  <button className="text-accent font-medium hover:underline">
+                  <button onClick={() => navigate('/auth')} className="text-primary font-medium hover:underline">
                     Sign in
                   </button>
                 </p>
               </motion.div>
+            ) : step === 'register-university' ? (
+              <motion.div
+                key="register-university"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="space-y-6"
+              >
+                <div>
+                  <button
+                    onClick={() => setStep('verify')}
+                    className="text-sm text-muted-foreground hover:text-foreground mb-4 flex items-center gap-1"
+                  >
+                    ← Back to verification
+                  </button>
+                  <h2 className="text-2xl font-bold text-foreground">Register Your University</h2>
+                  <p className="text-muted-foreground mt-2">
+                    Fill in the details to register your institution on UniERP.
+                  </p>
+                </div>
+
+                <form onSubmit={handleUniversitySubmit} className="space-y-4">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">
+                      Institution Name *
+                    </label>
+                    <div className="relative">
+                      <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        placeholder="University Name"
+                        className="pl-10"
+                        value={uniForm.name}
+                        onChange={(e) => setUniForm(prev => ({ ...prev, name: e.target.value }))}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1.5 block">
+                        Institution Type *
+                      </label>
+                      <Select
+                        value={uniForm.type}
+                        onValueChange={(v) => setUniForm(prev => ({ ...prev, type: v }))}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="university">University</SelectItem>
+                          <SelectItem value="college">College</SelectItem>
+                          <SelectItem value="institute">Institute</SelectItem>
+                          <SelectItem value="academy">Academy</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1.5 block">
+                        City/Location *
+                      </label>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          placeholder="City, Country"
+                          className="pl-10"
+                          value={uniForm.location}
+                          onChange={(e) => setUniForm(prev => ({ ...prev, location: e.target.value }))}
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">
+                      Full Address *
+                    </label>
+                    <Textarea
+                      placeholder="Complete institutional address"
+                      rows={2}
+                      value={uniForm.address}
+                      onChange={(e) => setUniForm(prev => ({ ...prev, address: e.target.value }))}
+                      required
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1.5 block">
+                        Official Email *
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          type="email"
+                          placeholder="admin@university.edu"
+                          className="pl-10"
+                          value={uniForm.email}
+                          onChange={(e) => setUniForm(prev => ({ ...prev, email: e.target.value }))}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1.5 block">
+                        Phone Number *
+                      </label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          placeholder="+1 (555) 000-0000"
+                          className="pl-10"
+                          value={uniForm.phone}
+                          onChange={(e) => setUniForm(prev => ({ ...prev, phone: e.target.value }))}
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">
+                      Website
+                    </label>
+                    <div className="relative">
+                      <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        type="url"
+                        placeholder="https://university.edu"
+                        className="pl-10"
+                        value={uniForm.website}
+                        onChange={(e) => setUniForm(prev => ({ ...prev, website: e.target.value }))}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">
+                      Brief Description
+                    </label>
+                    <Textarea
+                      placeholder="Tell us about your institution..."
+                      rows={3}
+                      value={uniForm.description}
+                      onChange={(e) => setUniForm(prev => ({ ...prev, description: e.target.value }))}
+                    />
+                  </div>
+
+                  <div className="bg-secondary/50 rounded-lg p-4 flex items-start gap-3">
+                    <FileText className="w-5 h-5 text-muted-foreground mt-0.5" />
+                    <div className="text-sm">
+                      <p className="font-medium text-foreground">Verification Process</p>
+                      <p className="text-muted-foreground">
+                        Your registration will be reviewed by our team. You'll receive a confirmation email within 2-3 business days.
+                      </p>
+                    </div>
+                  </div>
+
+                  <Button type="submit" className="w-full h-12" size="lg" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Submit Registration
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </motion.div>
             ) : (
               <motion.div
-                key="register"
+                key="register-admin"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
@@ -306,10 +546,15 @@ export function Onboarding() {
                   <p className="text-muted-foreground mt-2">
                     Complete your registration for{' '}
                     <span className="font-medium text-foreground">{verifiedOrg?.name}</span>
+                    {!verifiedOrg?.verified && (
+                      <span className="ml-2 text-xs bg-amber-500/10 text-amber-600 px-2 py-0.5 rounded-full">
+                        Pending Verification
+                      </span>
+                    )}
                   </p>
                 </div>
 
-                <form onSubmit={handleRegister} className="space-y-4">
+                <form onSubmit={handleAdminRegister} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-foreground mb-1.5 block">
@@ -351,9 +596,9 @@ export function Onboarding() {
 
                 <p className="text-center text-xs text-muted-foreground">
                   By creating an account, you agree to our{' '}
-                  <button className="text-accent hover:underline">Terms of Service</button>
+                  <button className="text-primary hover:underline">Terms of Service</button>
                   {' '}and{' '}
-                  <button className="text-accent hover:underline">Privacy Policy</button>
+                  <button className="text-primary hover:underline">Privacy Policy</button>
                 </p>
               </motion.div>
             )}
