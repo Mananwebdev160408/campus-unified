@@ -20,40 +20,43 @@ import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 import Settings from "./pages/Settings";
 import Notifications from "./pages/Notifications";
 import Help from "./pages/Help";
+import { ThemeProvider } from "next-themes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route element={<MainLayout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/profile" element={<StudentProfile />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/timetable" element={<Timetable />} />
-            <Route path="/attendance" element={<Attendance />} />
-            <Route path="/examinations" element={<Examinations />} />
-            <Route path="/finance" element={<Finance />} />
-            <Route path="/placements" element={<Placements />} />
-            <Route path="/resume-builder" element={<ResumeBuilder />} />
-            <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/help" element={<Help />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route element={<MainLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<StudentProfile />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/timetable" element={<Timetable />} />
+              <Route path="/attendance" element={<Attendance />} />
+              <Route path="/examinations" element={<Examinations />} />
+              <Route path="/finance" element={<Finance />} />
+              <Route path="/placements" element={<Placements />} />
+              <Route path="/resume-builder" element={<ResumeBuilder />} />
+              <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/help" element={<Help />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;
