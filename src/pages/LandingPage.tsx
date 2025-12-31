@@ -21,6 +21,8 @@ import { Button } from "@/components/ui/button";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import ThemeToggler from "@/components/ThemeToggler";
+import React from "react";
+import { WobbleCard } from "@/components/ui/wobble-card";
 
 const container = {
   hidden: { opacity: 0 },
@@ -31,44 +33,41 @@ const container = {
 };
 
 const testimonials = [
-  
   {
     quote:
       "Our institution has always focused on academic excellence and holistic development. This platform has strengthened our ability to support students and faculty alike.",
     name: "Dr. Rajesh Mehra",
     designation: "Chairman, Horizon Institute of Technology",
-    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "The modernization initiatives we’ve implemented over the last few years have reshaped the learning environment across our campus.",
     name: "Prof. Anita Sharma",
     designation: "Chairperson, Crestwood College of Engineering",
-    src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "Our college remains committed to innovation, research, and student success. The collaborative ecosystem we’re building is truly transformative.",
     name: "Dr. Arvind Nair",
     designation: "Chairman, Silverstone University",
-    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "With strong academic programs and industry partnerships, we are preparing students for real-world challenges and meaningful careers.",
     name: "Mrs. Kavita Rao",
     designation: "Chairperson, Green Valley Management College",
-    src: "https://images.unsplash.com/photo-1580584128409-9b5c3b3c4b9e?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1580584128409-9b5c3b3c4b9e?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "Our campus culture promotes leadership, discipline, and innovation. We take pride in nurturing the next generation of professionals.",
     name: "Mr. Prakash Iyer",
     designation: "Chairman, Riverside College of Science & Arts",
-    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=3540&auto=format&fit=crop"
-  }
-
-
+    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=3540&auto=format&fit=crop",
+  },
 ];
 
 const item = {
@@ -259,8 +258,7 @@ export function LandingPage() {
               institutional management.
             </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 icon: Users,
@@ -326,6 +324,113 @@ export function LandingPage() {
                 </p>
               </motion.div>
             ))}
+          </div> */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto w-full">
+            <WobbleCard
+              containerClassName="col-span-1 lg:col-span-3 h-full bg-accent/10min-h-[500px] lg:min-h-[300px]"
+              className=""
+            >
+              <div className="max-w-xs">
+                <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Student Information System
+                </h2>
+                <p className="mt-4 text-left  text-base/6 text-neutral-200">
+                  Comprehensive student profiles with academic history, documents, and attendance tracking.
+                </p>
+              </div>
+              <img
+                src="/1st.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[20%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 bg-success/10 min-h-[300px]">
+              <div>
+              <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                Academic Management
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                Academic Core: Catalog, Scheduling, Curriculum & Exams.
+              </p>
+              </div>
+              <img
+                src="/2nd.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[40%] lg:-bottom-[20%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-2 bg-warning/10 min-h-[300px]">
+              <div>
+                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                Attendance Tracking
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                Biometric & QR-based attendance with threshold alerts and detailed reports.
+              </p>
+              </div>
+              <img
+                src="/3rd.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[40%] lg:-bottom-[40%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-primary/10 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+              <div className="max-w-sm">
+                <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Examinations & Grades
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  Gradebook management, GPA calculations, and secure transcript generation.
+                </p>
+              </div>
+              <img
+                src="/4th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-10 md:-right-[40%] lg:-right-[43%] -bottom-16 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 bg-destructive/10 min-h-[300px]">
+              <div>
+                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                Placement Portal
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                Job postings, AI-powered resume analyzer, and recruiter management.
+              </p>
+              </div>
+              <img
+                src="/5th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[40%]  filter -bottom-13 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-accent/10 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+              <div className="max-w-sm">
+                <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Resume Builder
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  Auto-generate verified resumes with QR codes for recruiter verification.
+                </p>
+              </div>
+              <img
+                src="/6th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-10 md:-right-[40%] lg:-right-[15%] -bottom-12 object-contain rounded-2xl"
+              />
+            </WobbleCard>
           </div>
         </div>
       </section>
@@ -407,72 +512,17 @@ export function LandingPage() {
               className=" px-10 flex flex-col  gap-3 mb-7 justify-center text-left "
             >
               <h1 className="text-7xl font-bold  text-accent">Testimonials</h1>
-              <span className="bg-gradient-to-r from-black via-blue-600 to-black h-[2px] " ></span>
+              <span className="bg-gradient-to-r from-black via-blue-600 to-black h-[2px] "></span>
               <h2 className="text-2xl sm:text-4xl font-bold text-foreground mt-2">
                 Loved by Institutions Worldwide
               </h2>
             </motion.div>
-            <div>
-              {/* <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "UniFlow transformed how we manage our 5,000+ students. The placement module alone increased our placement rate by 40%.",
-                author: "Dr. Sarah Chen",
-                role: "Dean, Stanford Tech Institute",
-                rating: 5,
-              },
-              {
-                quote:
-                  "The most intuitive ERP we've ever used. Our faculty adopted it within days, not months like previous systems.",
-                author: "Prof. James Wilson",
-                role: "HOD, Cambridge Business School",
-                rating: 5,
-              },
-              {
-                quote:
-                  "Attendance tracking, fee management, and academic records - all in one place. It's exactly what modern education needs.",
-                author: "Dr. Priya Sharma",
-                role: "Registrar, Delhi University",
-                rating: 5,
-              },
-            ].map((testimonial, i) => (
-              <motion.div
-                key={testimonial.author}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="card-elevated p-6"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, j) => (
-                    <Star
-                      key={j}
-                      className="w-4 h-4 fill-warning text-warning"
-                    />
-                  ))}
-                </div>
-                <p className="text-foreground mb-6">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div> */}
-            </div>
           </div>
           <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
           >
             <AnimatedTestimonials testimonials={testimonials} />
           </motion.div>
