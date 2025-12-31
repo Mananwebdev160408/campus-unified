@@ -56,6 +56,7 @@ export default function Auth() {
     { value: 'college_admin', label: 'College Admin' },
     { value: 'placement_officer', label: 'Placement Officer' },
     { value: 'recruiter', label: 'Recruiter' },
+    {value: 'super_admin', label: 'Admin'},
   ];
 
   return (
