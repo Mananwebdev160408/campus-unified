@@ -191,7 +191,7 @@ export default function Placements() {
           <h1 className="text-2xl font-bold text-foreground">Placement Portal</h1>
           <p className="text-muted-foreground mt-1">Find your dream job opportunities</p>
         </div>
-        <Button>
+        <Button onClick={() => window.location.href = '/my-applications'}>
           <Briefcase className="w-4 h-4 mr-2" />
           My Applications
         </Button>
@@ -366,52 +366,13 @@ export default function Placements() {
 
                 {/* Actions */}
                 <div className="flex lg:flex-col gap-2 shrink-0">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button onClick={() => setSelectedJob(job)}>
-                        View Details
-                        <ChevronRight className="w-4 h-4 ml-1" />
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-2xl">
-                      <DialogHeader>
-                        <DialogTitle className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-xl font-bold text-primary">
-                            {job.companyLogo}
-                          </div>
-                          <div>
-                            <p className="text-xl">{job.title}</p>
-                            <p className="text-sm font-normal text-primary">{job.company}</p>
-                          </div>
-                        </DialogTitle>
-                        <DialogDescription className="text-left pt-4">
-                          <div className="space-y-4">
-                            <p className="text-foreground">{job.description}</p>
-                            
-                            <div>
-                              <h4 className="font-medium text-foreground mb-2">Requirements</h4>
-                              <ul className="space-y-1">
-                                {job.requirements.map((req, i) => (
-                                  <li key={i} className="flex items-start gap-2 text-sm">
-                                    <CheckCircle2 className="w-4 h-4 text-success mt-0.5" />
-                                    {req}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            <div className="flex gap-4 pt-4">
-                              <Button className="flex-1">
-                                Apply with Verified Profile
-                              </Button>
-                              
-                            </div>
-                          </div>
-                        </DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  </Dialog>
-                 
+                  <Button onClick={() => window.location.href = `/placements/${job.id}`}>
+                    View Details
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                  <Button variant="outline" size="icon">
+                    <BookmarkPlus className="w-4 h-4" />
+                  </Button>
                 </div>
               </div>
             </div>

@@ -110,6 +110,12 @@ const navItems: NavItem[] = [
   },
   {
     icon: Building2,
+    label: "Hostel Issues",
+    path: "/hostel-issues",
+    roles: ["student"],
+  },
+  {
+    icon: Building2,
     label: "Organizations",
     path: "/organizations",
     roles: ["super_admin"],

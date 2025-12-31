@@ -283,9 +283,9 @@ export default function Courses() {
               <Button
                 className="w-full"
                 variant={course.enrolled >= course.capacity ? 'secondary' : 'default'}
-                disabled={course.enrolled >= course.capacity}
+                onClick={() => window.location.href = `/courses/${course.id}`}
               >
-                {course.enrolled >= course.capacity ? 'Class Full' : 'Enroll Now'}
+                {course.enrolled >= course.capacity ? 'View Details' : 'Enroll Now'}
               </Button>
             </div>
           </motion.div>

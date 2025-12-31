@@ -210,7 +210,7 @@ export default function Finance() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     className="p-5 hover:bg-muted/30 transition-colors cursor-pointer"
-                    onClick={() => setSelectedInvoice(invoice)}
+                    onClick={() => window.location.href = `/finance/${invoice.id}`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">

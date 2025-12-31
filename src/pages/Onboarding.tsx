@@ -128,7 +128,7 @@ export function Onboarding() {
   const handleAdminRegister = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Registration complete!', {
-      description: 'Welcome to UniERP. Redirecting to dashboard...',
+      description: 'Welcome to UniFlow. Redirecting to dashboard...',
     });
     // Navigate to dashboard after registration
     setTimeout(() => navigate('/dashboard'), 1000);
@@ -148,7 +148,7 @@ export function Onboarding() {
             <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
               <GraduationCap className="w-7 h-7 text-primary-foreground" />
             </div>
-            <span className="text-2xl font-bold text-primary-foreground">UniERP</span>
+            <span className="text-2xl font-bold text-primary-foreground">UniFlow</span>
           </div>
           
           <h1 className="text-4xl font-bold text-primary-foreground leading-tight mb-4">
@@ -198,7 +198,7 @@ export function Onboarding() {
                   <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                     <GraduationCap className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <span className="text-xl font-bold text-foreground">UniERP</span>
+                  <span className="text-xl font-bold text-foreground">UniFlow</span>
                 </div>
 
                 <div>
@@ -369,7 +369,7 @@ export function Onboarding() {
                   </button>
                   <h2 className="text-2xl font-bold text-foreground">Register Your University</h2>
                   <p className="text-muted-foreground mt-2">
-                    Fill in the details to register your institution on UniERP.
+                    Fill in the details to register your institution on UniFlow.
                   </p>
                 </div>
 
