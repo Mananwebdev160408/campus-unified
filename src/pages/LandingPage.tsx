@@ -363,14 +363,13 @@ export function LandingPage() {
                 className="absolute -right-4 lg:-right-[40%] lg:-bottom-[20%]  filter -bottom-10 object-contain rounded-2xl"
               />
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-2 min-h-[300px]">
+            <WobbleCard containerClassName="col-span-2 bg-warning/10 min-h-[300px]">
               <div>
                 <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                No shirt, no shoes, no weapons.
+                Attendance Tracking
               </h2>
               <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                If someone yells “stop!”, goes limp, or taps out, the fight is
-                over.
+                Biometric & QR-based attendance with threshold alerts and detailed reports.
               </p>
               </div>
               <img
@@ -378,18 +377,16 @@ export function LandingPage() {
                 width={500}
                 height={500}
                 alt="linear demo image"
-                className="absolute -right-4 lg:-right-[30%] lg:-bottom-[25%]  filter -bottom-10 object-contain rounded-2xl"
+                className="absolute -right-4 lg:-right-[40%] lg:-bottom-[40%]  filter -bottom-10 object-contain rounded-2xl"
               />
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+            <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-primary/10 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
               <div className="max-w-sm">
                 <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                  Signup for blazing-fast cutting-edge state of the art Gippity
-                  AI wrapper today!
+                  Examinations & Grades
                 </h2>
                 <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                  With over 100,000 mothly active bot users, Gippity AI is the
-                  most popular AI platform for developers.
+                  Gradebook management, GPA calculations, and secure transcript generation.
                 </p>
               </div>
               <img
@@ -397,17 +394,16 @@ export function LandingPage() {
                 width={500}
                 height={500}
                 alt="linear demo image"
-                className="absolute -right-10 md:-right-[40%] lg:-right-[35%] -bottom-14 object-contain rounded-2xl"
+                className="absolute -right-10 md:-right-[40%] lg:-right-[43%] -bottom-16 object-contain rounded-2xl"
               />
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 min-h-[300px]">
+            <WobbleCard containerClassName="col-span-1 bg-destructive/10 min-h-[300px]">
               <div>
                 <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                No shirt, no shoes, no weapons.
+                Placement Portal
               </h2>
               <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                If someone yells “stop!”, goes limp, or taps out, the fight is
-                over.
+                Job postings, AI-powered resume analyzer, and recruiter management.
               </p>
               </div>
               <img
@@ -418,15 +414,13 @@ export function LandingPage() {
                 className="absolute -right-4 lg:-right-[40%]  filter -bottom-13 object-contain rounded-2xl"
               />
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+            <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-accent/10 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
               <div className="max-w-sm">
                 <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                  Signup for blazing-fast cutting-edge state of the art Gippity
-                  AI wrapper today!
+                  Resume Builder
                 </h2>
                 <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                  With over 100,000 mothly active bot users, Gippity AI is the
-                  most popular AI platform for developers.
+                  Auto-generate verified resumes with QR codes for recruiter verification.
                 </p>
               </div>
               <img
