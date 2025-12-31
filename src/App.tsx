@@ -33,6 +33,18 @@ import Recruiters from "./pages/admin/Recruiters";
 import SystemConfig from "./pages/admin/SystemConfig";
 import SystemLogs from "./pages/admin/SystemLogs";
 import Approvals from "./pages/admin/Approvals";
+import Departments from "./pages/college/Departments";
+import DepartmentDetail from "./pages/college/DepartmentDetail";
+import FinancialReport from "./pages/college/FinancialReport";
+import Admissions from "./pages/college/Admissions";
+import Faculty from "./pages/college/Faculty";
+import FacultyDetail from "./pages/college/FacultyDetail";
+import AddFaculty from "./pages/college/AddFaculty";
+import AddUser from "./pages/college/AddUser";
+import Reports from "./pages/college/Reports";
+import AddCourse from "./pages/college/AddCourse";
+import Schedule from "./pages/college/Schedule";
+import FeeSetup from "./pages/college/FeeSetup";
 import { ThemeProvider } from "next-themes";
 import NotFound from "./pages/NotFound";
 
@@ -76,6 +88,18 @@ const App = () => (
               <Route path="/admin/system-config" element={<SystemConfig />} />
               <Route path="/admin/logs" element={<SystemLogs />} />
               <Route path="/admin/approvals" element={<Approvals />} />
+              <Route path="/college/departments" element={<Departments />} />
+              <Route path="/college/departments/:id" element={<DepartmentDetail />} />
+              <Route path="/college/financial-report" element={<FinancialReport />} />
+              <Route path="/college/admissions" element={<Admissions />} />
+              <Route path="/college/faculty" element={<Faculty />} />
+              <Route path="/college/faculty/add" element={<AddFaculty />} />
+              <Route path="/college/faculty/:id" element={<FacultyDetail />} />
+              <Route path="/college/add-user" element={<AddUser />} />
+              <Route path="/college/reports" element={<Reports />} />
+              <Route path="/college/add-course" element={<AddCourse />} />
+              <Route path="/college/schedule" element={<Schedule />} />
+              <Route path="/college/fee-setup" element={<FeeSetup />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
