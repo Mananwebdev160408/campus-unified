@@ -404,18 +404,14 @@ export default function Placements() {
                               <Button className="flex-1">
                                 Apply with Verified Profile
                               </Button>
-                              <Button variant="outline">
-                                <BookmarkPlus className="w-4 h-4" />
-                              </Button>
+                              
                             </div>
                           </div>
                         </DialogDescription>
                       </DialogHeader>
                     </DialogContent>
                   </Dialog>
-                  <Button variant="outline" size="icon">
-                    <BookmarkPlus className="w-4 h-4" />
-                  </Button>
+                 
                 </div>
               </div>
             </div>

@@ -16,6 +16,7 @@ import {
   QrCode,
   ExternalLink,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
@@ -34,6 +35,7 @@ const item = {
 };
 
 export function StudentProfile() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('profile');
 
   return (
@@ -78,7 +80,7 @@ export function StudentProfile() {
                   <QrCode className="w-4 h-4" />
                   View QR
                 </Button>
-                <Button size="sm">
+                <Button size="sm" onClick={()=>navigate('/resume-builder')} >
                   <Download className="w-4 h-4" />
                   Download Resume
                 </Button>
@@ -221,7 +223,7 @@ export function StudentProfile() {
               <div className="card-elevated p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold text-foreground">Current Courses</h2>
-                  <Button variant="ghost" size="sm">
+                  <Button onClick={()=>navigate('/courses')} variant="ghost" size="sm">
                     View All
                     <ExternalLink className="w-3.5 h-3.5" />
                   </Button>

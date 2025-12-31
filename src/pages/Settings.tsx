@@ -113,7 +113,7 @@ export default function Settings() {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground">Email</label>
-                  <Input defaultValue="alex.johnson@university.edu" className="mt-1" />
+                  <Input defaultValue="alex.johnson@university.edu" disabled className="mt-1 bg-muted" />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground">Phone</label>

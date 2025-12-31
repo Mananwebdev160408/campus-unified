@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
   Users,
@@ -17,9 +17,9 @@ import {
   Building2,
   Shield,
   UserCog,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
-import type { UserRole } from '@/types';
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import type { UserRole } from "@/types";
 
 interface SidebarProps {
   role: UserRole;
@@ -35,46 +35,136 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', roles: ['student', 'faculty', 'college_admin', 'super_admin', 'placement_officer', 'recruiter'] },
-  { icon: Users, label: 'Students', path: '/students', roles: ['faculty', 'college_admin', 'super_admin', 'placement_officer'] },
-  { icon: GraduationCap, label: 'My Profile', path: '/profile', roles: ['student'] },
-  { icon: BookOpen, label: 'Courses', path: '/courses', roles: ['student', 'faculty', 'college_admin'] },
-  { icon: Calendar, label: 'Timetable', path: '/timetable', roles: ['student', 'faculty', 'college_admin'] },
-  { icon: ClipboardCheck, label: 'Attendance', path: '/attendance', roles: ['student', 'faculty', 'college_admin'] },
-  { icon: FileText, label: 'Examinations', path: '/examinations', roles: ['student', 'faculty', 'college_admin'] },
-  { icon: CreditCard, label: 'Finance', path: '/finance', roles: ['student', 'college_admin', 'super_admin'] },
-  { icon: Briefcase, label: 'Placements', path: '/placements', roles: ['student', 'placement_officer', 'recruiter'] },
-  { icon: FileText, label: 'Resume Builder', path: '/resume-builder', roles: ['student'] },
-  { icon: FileText, label: 'AI Analyzer', path: '/resume-analyzer', roles: ['student'] },
-  { icon: Building2, label: 'Organizations', path: '/organizations', roles: ['super_admin'] },
-  { icon: UserCog, label: 'Faculty', path: '/faculty', roles: ['college_admin', 'super_admin'] },
-  { icon: Shield, label: 'Admins', path: '/admins', roles: ['super_admin'] },
-  { icon: Settings, label: 'Settings', path: '/settings', roles: ['student', 'faculty', 'college_admin', 'super_admin', 'placement_officer', 'recruiter'] },
+  {
+    icon: LayoutDashboard,
+    label: "Dashboard",
+    path: "/dashboard",
+    roles: [
+      "student",
+      "faculty",
+      "college_admin",
+      "super_admin",
+      "placement_officer",
+      "recruiter",
+    ],
+  },
+  {
+    icon: Users,
+    label: "Students",
+    path: "/students",
+    roles: ["faculty", "college_admin", "super_admin", "placement_officer"],
+  },
+  {
+    icon: GraduationCap,
+    label: "My Profile",
+    path: "/profile",
+    roles: ["student"],
+  },
+  {
+    icon: BookOpen,
+    label: "Courses",
+    path: "/courses",
+    roles: ["student", "faculty", "college_admin"],
+  },
+  {
+    icon: Calendar,
+    label: "Timetable",
+    path: "/timetable",
+    roles: ["student", "faculty", "college_admin"],
+  },
+  {
+    icon: ClipboardCheck,
+    label: "Attendance",
+    path: "/attendance",
+    roles: ["student", "faculty", "college_admin"],
+  },
+  {
+    icon: FileText,
+    label: "Examinations",
+    path: "/examinations",
+    roles: ["student", "faculty", "college_admin"],
+  },
+  {
+    icon: CreditCard,
+    label: "Finance",
+    path: "/finance",
+    roles: ["student", "college_admin", "super_admin"],
+  },
+  {
+    icon: Briefcase,
+    label: "Placements",
+    path: "/placements",
+    roles: ["student", "placement_officer", "recruiter"],
+  },
+  {
+    icon: FileText,
+    label: "Resume Builder",
+    path: "/resume-builder",
+    roles: ["student"],
+  },
+  {
+    icon: FileText,
+    label: "AI Analyzer",
+    path: "/resume-analyzer",
+    roles: ["student"],
+  },
+  {
+    icon: Building2,
+    label: "Organizations",
+    path: "/organizations",
+    roles: ["super_admin"],
+  },
+  {
+    icon: UserCog,
+    label: "Faculty",
+    path: "/faculty",
+    roles: ["college_admin", "super_admin"],
+  },
+  { icon: Shield, label: "Admins", path: "/admins", roles: ["super_admin"] },
+  {
+    icon: Settings,
+    label: "Settings",
+    path: "/settings",
+    roles: [
+      "student",
+      "faculty",
+      "college_admin",
+      "super_admin",
+      "placement_officer",
+      "recruiter",
+    ],
+  },
 ];
 
 export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
   const location = useLocation();
-  const filteredItems = navItems.filter(item => item.roles.includes(role));
+  const filteredItems = navItems.filter((item) => item.roles.includes(role));
 
   return (
     <aside
       className={cn(
-        'fixed left-0 top-0 z-40 h-screen bg-sidebar border-r border-sidebar-border transition-all duration-300 flex flex-col',
-        collapsed ? 'w-16' : 'w-64'
+        "fixed left-0 top-0 z-40 h-screen bg-sidebar border-r border-sidebar-border transition-all duration-300 flex flex-col",
+        collapsed ? "w-16" : "w-64"
       )}
     >
       {/* Logo */}
-      <div className={cn(
-        "h-16 flex items-center border-b border-sidebar-border",
-        collapsed ? "justify-center px-2" : "justify-between px-4"
-      )}>
+      <div
+        className={cn(
+          "h-16 flex items-center border-b border-sidebar-border",
+          collapsed ? "justify-center px-2" : "justify-between px-4"
+        )}
+      >
         {collapsed ? (
           <button
             onClick={onToggle}
-            className="p-2 rounded-md hover:bg-sidebar-accent transition-colors"
+            className="group relative p-2 rounded-md hover:bg-sidebar-accent transition-colors"
             title="Expand sidebar"
           >
-            <ChevronRight className="w-5 h-5 text-sidebar-foreground" />
+            <GraduationCap className="absolute inset-0 m-auto w-5 h-5  text-primary-foreground transition-transform duration-200 scale-100 group-hover:scale-0 group-hover:-rotate-90" />
+
+            <ChevronRight className="absolute inset-0 m-auto w-5 h-5 text-primary-foreground transition-transform duration-200 rotate-90 scale-0 group-hover:rotate-0 group-hover:scale-100" />
+
+            <span className="sr-only">Expand sidebar</span>
           </button>
         ) : (
           <>
@@ -86,7 +176,9 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-semibold text-sidebar-foreground">UniERP</span>
+              <span className="font-semibold text-sidebar-foreground">
+                UniERP
+              </span>
             </motion.div>
             <button
               onClick={onToggle}
@@ -109,16 +201,21 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
                 <NavLink
                   to={item.path}
                   className={cn(
-                    'sidebar-item',
-                    isActive && 'sidebar-item-active'
+                    "sidebar-item",
+                    isActive && "sidebar-item-active"
                   )}
                 >
-                  <item.icon className={cn('w-5 h-5 shrink-0', isActive && 'text-accent')} />
+                  <item.icon
+                    className={cn(
+                      "w-5 h-5 shrink-0",
+                      isActive && "text-accent"
+                    )}
+                  />
                   <AnimatePresence mode="wait">
                     {!collapsed && (
                       <motion.span
                         initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: 'auto' }}
+                        animate={{ opacity: 1, width: "auto" }}
                         exit={{ opacity: 0, width: 0 }}
                         className="truncate"
                       >
@@ -132,7 +229,6 @@ export function Sidebar({ role, collapsed, onToggle }: SidebarProps) {
           })}
         </ul>
       </nav>
-
     </aside>
   );
 }

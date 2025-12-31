@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import ThemeToggler from "../../components/ThemeToggler";
 import type { User as UserType } from '@/types';
 
 interface HeaderProps {
@@ -59,7 +60,7 @@ export function Header({ user, sidebarCollapsed }: HeaderProps) {
           >
             <HelpCircle className="w-5 h-5" />
           </Button>
-
+          <ThemeToggler/>
           {/* Notifications */}
           <Button 
             variant="ghost" 

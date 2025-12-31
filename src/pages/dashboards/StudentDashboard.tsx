@@ -12,6 +12,7 @@ import {
   CheckCircle,
   ArrowUpRight,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const container = {
@@ -28,6 +29,7 @@ const item = {
 };
 
 export function StudentDashboard() {
+  const navigate = useNavigate();
   return (
     <motion.div
       variants={container}
@@ -41,7 +43,7 @@ export function StudentDashboard() {
           <h1 className="text-2xl font-bold text-foreground">Welcome back, Alex</h1>
           <p className="text-muted-foreground">Here's what's happening with your academics today.</p>
         </div>
-        <Button variant="gradient">
+        <Button variant="gradient" onClick={()=>navigate('/resume-builder')}>
           <FileText className="w-4 h-4" />
           Generate Resume
         </Button>
@@ -61,7 +63,7 @@ export function StudentDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Today's Schedule</h2>
-              <Button variant="ghost" size="sm">View Timetable<ArrowUpRight className="w-3.5 h-3.5" /></Button>
+              <Button onClick={()=>navigate('/timetable')} variant="ghost" size="sm">View Timetable<ArrowUpRight className="w-3.5 h-3.5" /></Button>
             </div>
             <div className="space-y-3">
               <ScheduleItem time="09:00 - 10:30" subject="Data Structures & Algorithms" room="Room 204" status="completed" />
@@ -74,7 +76,7 @@ export function StudentDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Placement Opportunities</h2>
-              <Button variant="ghost" size="sm">View All<ArrowUpRight className="w-3.5 h-3.5" /></Button>
+              <Button onClick={()=>navigate('/placements')} variant="ghost" size="sm">View All<ArrowUpRight className="w-3.5 h-3.5" /></Button>
             </div>
             <div className="space-y-3">
               <JobCard company="Google" role="Software Engineer Intern" location="Bangalore" deadline="Dec 28" matchScore={92} />
@@ -110,7 +112,7 @@ export function StudentDashboard() {
               <div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">Tuition Fee</span><span className="status-badge status-verified">Paid</span></div>
               <div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">Exam Fee</span><span className="status-badge status-pending">Due Dec 30</span></div>
               <div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">Library Fine</span><span className="status-badge status-error">₹50 Pending</span></div>
-              <Button variant="outline" className="w-full mt-2" size="sm"><CreditCard className="w-4 h-4" />Pay Now</Button>
+              <Button onClick={()=>navigate('/finance')} variant="outline" className="w-full mt-2" size="sm"><CreditCard className="w-4 h-4" />Pay Now</Button>
             </div>
           </motion.div>
         </div>

@@ -115,9 +115,7 @@ export default function Notifications() {
               Mark all as read
             </Button>
           )}
-          <Button variant="ghost" size="icon">
-            <Settings className="w-4 h-4" />
-          </Button>
+          
         </div>
       </div>
 
