@@ -355,22 +355,23 @@ export function LandingPage() {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between w-1/3 items-center">
+          <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className=" px-10 flex flex-col gap-3 mb-7 justify-center text-left "
           >
-            <span className="text-sm font-medium text-accent">
+            <h1 className="text-7xl font-bold  text-accent">
               Testimonials
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
+            </h1>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground mt-2">
               Loved by Institutions Worldwide
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 quote:
@@ -421,7 +422,14 @@ export function LandingPage() {
                 </div>
               </motion.div>
             ))}
+          </div> */}
+          <div>
+            
           </div>
+        </div>
+        <div className="flex-1 border" >
+
+        </div>
         </div>
       </section>
 
