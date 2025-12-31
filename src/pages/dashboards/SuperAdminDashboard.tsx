@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   Building2,
   Users,
@@ -31,6 +32,7 @@ const item = {
 };
 
 export function SuperAdminDashboard() {
+  const navigate = useNavigate();
   return (
     <motion.div
       variants={container}
@@ -45,11 +47,11 @@ export function SuperAdminDashboard() {
           <p className="text-muted-foreground">Monitor all organizations and system health</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
+          <Button variant="outline" onClick={() => navigate('/admin/system-config')}>
             <Settings className="w-4 h-4" />
             System Config
           </Button>
-          <Button variant="gradient">
+          <Button variant="gradient" onClick={() => navigate('/admin/organizations/new')}>
             <Building2 className="w-4 h-4" />
             Add Organization
           </Button>
@@ -99,7 +101,7 @@ export function SuperAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Organizations</h2>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/admin/organizations')}>
                 Manage All
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Button>
@@ -136,7 +138,7 @@ export function SuperAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Recent Activity</h2>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/admin/logs')}>
                 View Logs
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Button>
@@ -203,7 +205,7 @@ export function SuperAdminDashboard() {
                 count={3}
               />
             </div>
-            <Button variant="outline" className="w-full mt-4" size="sm">
+            <Button variant="outline" className="w-full mt-4" size="sm" onClick={() => navigate('/admin/approvals')}>
               Review All
             </Button>
           </motion.div>
