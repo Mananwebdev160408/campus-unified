@@ -412,66 +412,13 @@ export function LandingPage() {
                 Loved by Institutions Worldwide
               </h2>
             </motion.div>
-            <div>
-              {/* <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "UniFlow transformed how we manage our 5,000+ students. The placement module alone increased our placement rate by 40%.",
-                author: "Dr. Sarah Chen",
-                role: "Dean, Stanford Tech Institute",
-                rating: 5,
-              },
-              {
-                quote:
-                  "The most intuitive ERP we've ever used. Our faculty adopted it within days, not months like previous systems.",
-                author: "Prof. James Wilson",
-                role: "HOD, Cambridge Business School",
-                rating: 5,
-              },
-              {
-                quote:
-                  "Attendance tracking, fee management, and academic records - all in one place. It's exactly what modern education needs.",
-                author: "Dr. Priya Sharma",
-                role: "Registrar, Delhi University",
-                rating: 5,
-              },
-            ].map((testimonial, i) => (
-              <motion.div
-                key={testimonial.author}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="card-elevated p-6"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, j) => (
-                    <Star
-                      key={j}
-                      className="w-4 h-4 fill-warning text-warning"
-                    />
-                  ))}
-                </div>
-                <p className="text-foreground mb-6">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div> */}
-            </div>
+            
           </div>
           <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
           
           >
             <AnimatedTestimonials testimonials={testimonials} />
