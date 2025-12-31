@@ -191,7 +191,7 @@ export default function Placements() {
           <h1 className="text-2xl font-bold text-foreground">Placement Portal</h1>
           <p className="text-muted-foreground mt-1">Find your dream job opportunities</p>
         </div>
-        <Button>
+        <Button onClick={() => window.location.href = '/my-applications'}>
           <Briefcase className="w-4 h-4 mr-2" />
           My Applications
         </Button>
@@ -366,13 +366,10 @@ export default function Placements() {
 
                 {/* Actions */}
                 <div className="flex lg:flex-col gap-2 shrink-0">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button onClick={() => setSelectedJob(job)}>
-                        View Details
-                        <ChevronRight className="w-4 h-4 ml-1" />
-                      </Button>
-                    </DialogTrigger>
+                  <Button onClick={() => window.location.href = `/placements/${job.id}`}>
+                    View Details
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
                     <DialogContent className="max-w-2xl">
                       <DialogHeader>
                         <DialogTitle className="flex items-center gap-3">

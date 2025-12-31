@@ -45,7 +45,7 @@ export function LandingPage() {
               <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">UniERP</span>
+              <span className="text-xl font-bold text-foreground">UniFlow</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
@@ -138,7 +138,7 @@ export function LandingPage() {
             </div>
             <img 
               src={heroDashboard} 
-              alt="UniERP Dashboard Preview"
+              alt="UniFlow Dashboard Preview"
               className="rounded-xl w-full object-cover"
             />
             <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-card via-transparent to-transparent" />
@@ -319,7 +319,7 @@ export function LandingPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                quote: "UniERP transformed how we manage our 5,000+ students. The placement module alone increased our placement rate by 40%.",
+                quote: "UniFlow transformed how we manage our 5,000+ students. The placement module alone increased our placement rate by 40%.",
                 author: "Dr. Sarah Chen",
                 role: "Dean, Stanford Tech Institute",
                 rating: 5,
