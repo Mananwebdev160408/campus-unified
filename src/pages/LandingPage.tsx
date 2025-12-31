@@ -33,44 +33,41 @@ const container = {
 };
 
 const testimonials = [
-  
   {
     quote:
       "Our institution has always focused on academic excellence and holistic development. This platform has strengthened our ability to support students and faculty alike.",
     name: "Dr. Rajesh Mehra",
     designation: "Chairman, Horizon Institute of Technology",
-    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "The modernization initiatives we’ve implemented over the last few years have reshaped the learning environment across our campus.",
     name: "Prof. Anita Sharma",
     designation: "Chairperson, Crestwood College of Engineering",
-    src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "Our college remains committed to innovation, research, and student success. The collaborative ecosystem we’re building is truly transformative.",
     name: "Dr. Arvind Nair",
     designation: "Chairman, Silverstone University",
-    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "With strong academic programs and industry partnerships, we are preparing students for real-world challenges and meaningful careers.",
     name: "Mrs. Kavita Rao",
     designation: "Chairperson, Green Valley Management College",
-    src: "https://images.unsplash.com/photo-1580584128409-9b5c3b3c4b9e?q=80&w=3540&auto=format&fit=crop"
+    src: "https://images.unsplash.com/photo-1580584128409-9b5c3b3c4b9e?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote:
       "Our campus culture promotes leadership, discipline, and innovation. We take pride in nurturing the next generation of professionals.",
     name: "Mr. Prakash Iyer",
     designation: "Chairman, Riverside College of Science & Arts",
-    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=3540&auto=format&fit=crop"
-  }
-
-
+    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=3540&auto=format&fit=crop",
+  },
 ];
 
 const item = {
@@ -260,8 +257,7 @@ export function LandingPage() {
               From admissions to placements, our platform covers every aspect of
               institutional management.
             </p>
-          
-
+          </motion.div>
           {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -329,92 +325,119 @@ export function LandingPage() {
               </motion.div>
             ))}
           </div> */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 mt-6 gap-4 max-w-7xl mx-auto w-full">
-      <WobbleCard
-        containerClassName="col-span-1 lg:col-span-3 h-full bg-pink-800 min-h-[500px] lg:min-h-[300px]"
-        className=""
-      >
-        <div className="max-w-xs">
-          <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Gippity AI powers the entire universe
-          </h2>
-          <p className="mt-4 text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
-          </p>
-        </div>
-        <img
-          src="/linear.webp"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
-        />
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 min-h-[300px]">
-        <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-          No shirt, no shoes, no weapons.
-        </h2>
-        <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-          If someone yells “stop!”, goes limp, or taps out, the fight is over.
-        </p>
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-2 min-h-[300px]">
-        <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-          No shirt, no shoes, no weapons.
-        </h2>
-        <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-          If someone yells “stop!”, goes limp, or taps out, the fight is over.
-        </p>
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-        <div className="max-w-sm">
-          <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Signup for blazing-fast cutting-edge state of the art Gippity AI
-            wrapper today!
-          </h2>
-          <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
-          </p>
-        </div>
-        <img
-          src="/linear.webp"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-        />
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 min-h-[300px]">
-        <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-          No shirt, no shoes, no weapons.
-        </h2>
-        <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-          If someone yells “stop!”, goes limp, or taps out, the fight is over.
-        </p>
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-        <div className="max-w-sm">
-          <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Signup for blazing-fast cutting-edge state of the art Gippity AI
-            wrapper today!
-          </h2>
-          <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
-          </p>
-        </div>
-        <img
-          src="/linear.webp"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-        />
-      </WobbleCard>
-    </div>
-    </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto w-full">
+            <WobbleCard
+              containerClassName="col-span-1 lg:col-span-3 h-full bg-accent/10min-h-[500px] lg:min-h-[300px]"
+              className=""
+            >
+              <div className="max-w-xs">
+                <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Student Information System
+                </h2>
+                <p className="mt-4 text-left  text-base/6 text-neutral-200">
+                  Comprehensive student profiles with academic history, documents, and attendance tracking.
+                </p>
+              </div>
+              <img
+                src="/1st.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[20%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 bg-success/10 min-h-[300px]">
+              <div>
+              <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                Academic Management
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                Academic Core: Catalog, Scheduling, Curriculum & Exams.
+              </p>
+              </div>
+              <img
+                src="/2nd.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[40%] lg:-bottom-[20%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-2 min-h-[300px]">
+              <div>
+                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                No shirt, no shoes, no weapons.
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                If someone yells “stop!”, goes limp, or taps out, the fight is
+                over.
+              </p>
+              </div>
+              <img
+                src="/3rd.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[30%] lg:-bottom-[25%]  filter -bottom-10 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+              <div className="max-w-sm">
+                <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Signup for blazing-fast cutting-edge state of the art Gippity
+                  AI wrapper today!
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  With over 100,000 mothly active bot users, Gippity AI is the
+                  most popular AI platform for developers.
+                </p>
+              </div>
+              <img
+                src="/4th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-10 md:-right-[40%] lg:-right-[35%] -bottom-14 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 min-h-[300px]">
+              <div>
+                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                No shirt, no shoes, no weapons.
+              </h2>
+              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                If someone yells “stop!”, goes limp, or taps out, the fight is
+                over.
+              </p>
+              </div>
+              <img
+                src="/5th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[40%]  filter -bottom-13 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+            <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+              <div className="max-w-sm">
+                <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Signup for blazing-fast cutting-edge state of the art Gippity
+                  AI wrapper today!
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  With over 100,000 mothly active bot users, Gippity AI is the
+                  most popular AI platform for developers.
+                </p>
+              </div>
+              <img
+                src="/6th.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-10 md:-right-[40%] lg:-right-[15%] -bottom-12 object-contain rounded-2xl"
+              />
+            </WobbleCard>
+          </div>
         </div>
       </section>
 
@@ -495,19 +518,17 @@ export function LandingPage() {
               className=" px-10 flex flex-col  gap-3 mb-7 justify-center text-left "
             >
               <h1 className="text-7xl font-bold  text-accent">Testimonials</h1>
-              <span className="bg-gradient-to-r from-black via-blue-600 to-black h-[2px] " ></span>
+              <span className="bg-gradient-to-r from-black via-blue-600 to-black h-[2px] "></span>
               <h2 className="text-2xl sm:text-4xl font-bold text-foreground mt-2">
                 Loved by Institutions Worldwide
               </h2>
             </motion.div>
-            
           </div>
           <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
           >
             <AnimatedTestimonials testimonials={testimonials} />
           </motion.div>
