@@ -26,6 +26,13 @@ import Notifications from "./pages/Notifications";
 import NotificationDetail from "./pages/NotificationDetail";
 import Help from "./pages/Help";
 import HostelIssues from "./pages/HostelIssues";
+import Organizations from "./pages/admin/Organizations";
+import OrganizationDetail from "./pages/admin/OrganizationDetail";
+import AddOrganization from "./pages/admin/AddOrganization";
+import Recruiters from "./pages/admin/Recruiters";
+import SystemConfig from "./pages/admin/SystemConfig";
+import SystemLogs from "./pages/admin/SystemLogs";
+import Approvals from "./pages/admin/Approvals";
 import { ThemeProvider } from "next-themes";
 import NotFound from "./pages/NotFound";
 
@@ -62,6 +69,13 @@ const App = () => (
               <Route path="/notifications/:id" element={<NotificationDetail />} />
               <Route path="/help" element={<Help />} />
               <Route path="/hostel-issues" element={<HostelIssues />} />
+              <Route path="/admin/organizations" element={<Organizations />} />
+              <Route path="/admin/organizations/new" element={<AddOrganization />} />
+              <Route path="/admin/organizations/:id" element={<OrganizationDetail />} />
+              <Route path="/admin/recruiters" element={<Recruiters />} />
+              <Route path="/admin/system-config" element={<SystemConfig />} />
+              <Route path="/admin/logs" element={<SystemLogs />} />
+              <Route path="/admin/approvals" element={<Approvals />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
