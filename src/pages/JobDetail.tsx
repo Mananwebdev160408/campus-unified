@@ -256,10 +256,7 @@ export default function JobDetail() {
           <Button className="flex-1">
             Apply with Verified Profile
           </Button>
-          <Button variant="outline">
-            <BookmarkPlus className="w-4 h-4 mr-2" />
-            Save Job
-          </Button>
+          
           <Button variant="outline">
             <ExternalLink className="w-4 h-4 mr-2" />
             Company Website

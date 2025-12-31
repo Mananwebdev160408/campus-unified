@@ -370,9 +370,7 @@ export default function Placements() {
                     View Details
                     <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
-                  <Button variant="outline" size="icon">
-                    <BookmarkPlus className="w-4 h-4" />
-                  </Button>
+                  
                 </div>
               </div>
             </div>
