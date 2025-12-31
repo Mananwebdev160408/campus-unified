@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Briefcase,
   MapPin,
@@ -14,17 +14,17 @@ import {
   ChevronRight,
   ExternalLink,
   BookmarkPlus,
-} from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+} from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
@@ -32,8 +32,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface Job {
   id: string;
@@ -41,7 +41,7 @@ interface Job {
   company: string;
   companyLogo: string;
   location: string;
-  type: 'full-time' | 'internship' | 'part-time';
+  type: "full-time" | "internship" | "part-time";
   salary: string;
   posted: string;
   deadline: string;
@@ -49,138 +49,165 @@ interface Job {
   requirements: string[];
   applicants: number;
   matchScore: number;
-  status: 'open' | 'applied' | 'shortlisted' | 'closed';
+  status: "open" | "applied" | "shortlisted" | "closed";
   tags: string[];
 }
 
 const jobs: Job[] = [
   {
-    id: '1',
-    title: 'Software Engineer',
-    company: 'Google',
-    companyLogo: 'G',
-    location: 'Bangalore, India',
-    type: 'full-time',
-    salary: '₹25-35 LPA',
-    posted: '2 days ago',
-    deadline: '2024-02-15',
-    description: 'Join our team to build next-generation products that impact billions of users worldwide.',
-    requirements: ['Strong DSA skills', 'Experience with distributed systems', '3+ years experience', 'B.Tech/M.Tech in CS'],
+    id: "1",
+    title: "Software Engineer",
+    company: "Google",
+    companyLogo: "G",
+    location: "Bangalore, India",
+    type: "full-time",
+    salary: "₹25-35 LPA",
+    posted: "2 days ago",
+    deadline: "2024-02-15",
+    description:
+      "Join our team to build next-generation products that impact billions of users worldwide.",
+    requirements: [
+      "Strong DSA skills",
+      "Experience with distributed systems",
+      "3+ years experience",
+      "B.Tech/M.Tech in CS",
+    ],
     applicants: 245,
     matchScore: 92,
-    status: 'open',
-    tags: ['Python', 'Go', 'Kubernetes', 'ML'],
+    status: "open",
+    tags: ["Python", "Go", "Kubernetes", "ML"],
   },
   {
-    id: '2',
-    title: 'ML Engineer Intern',
-    company: 'Microsoft',
-    companyLogo: 'M',
-    location: 'Hyderabad, India',
-    type: 'internship',
-    salary: '₹80K/month',
-    posted: '1 week ago',
-    deadline: '2024-02-20',
-    description: 'Work on cutting-edge AI/ML projects in our Azure AI team.',
-    requirements: ['ML fundamentals', 'Python proficiency', 'Currently pursuing B.Tech/M.Tech', 'Good academic record'],
+    id: "2",
+    title: "ML Engineer Intern",
+    company: "Microsoft",
+    companyLogo: "M",
+    location: "Hyderabad, India",
+    type: "internship",
+    salary: "₹80K/month",
+    posted: "1 week ago",
+    deadline: "2024-02-20",
+    description: "Work on cutting-edge AI/ML projects in our Azure AI team.",
+    requirements: [
+      "ML fundamentals",
+      "Python proficiency",
+      "Currently pursuing B.Tech/M.Tech",
+      "Good academic record",
+    ],
     applicants: 189,
     matchScore: 88,
-    status: 'applied',
-    tags: ['Python', 'TensorFlow', 'Azure', 'NLP'],
+    status: "applied",
+    tags: ["Python", "TensorFlow", "Azure", "NLP"],
   },
   {
-    id: '3',
-    title: 'Full Stack Developer',
-    company: 'Amazon',
-    companyLogo: 'A',
-    location: 'Mumbai, India',
-    type: 'full-time',
-    salary: '₹18-28 LPA',
-    posted: '3 days ago',
-    deadline: '2024-02-18',
-    description: 'Build scalable e-commerce solutions for millions of customers.',
-    requirements: ['React/Node.js experience', 'AWS knowledge', '2+ years experience', 'Problem-solving skills'],
+    id: "3",
+    title: "Full Stack Developer",
+    company: "Amazon",
+    companyLogo: "A",
+    location: "Mumbai, India",
+    type: "full-time",
+    salary: "₹18-28 LPA",
+    posted: "3 days ago",
+    deadline: "2024-02-18",
+    description:
+      "Build scalable e-commerce solutions for millions of customers.",
+    requirements: [
+      "React/Node.js experience",
+      "AWS knowledge",
+      "2+ years experience",
+      "Problem-solving skills",
+    ],
     applicants: 312,
     matchScore: 85,
-    status: 'open',
-    tags: ['React', 'Node.js', 'AWS', 'MongoDB'],
+    status: "open",
+    tags: ["React", "Node.js", "AWS", "MongoDB"],
   },
   {
-    id: '4',
-    title: 'Data Analyst',
-    company: 'Flipkart',
-    companyLogo: 'F',
-    location: 'Bangalore, India',
-    type: 'full-time',
-    salary: '₹12-18 LPA',
-    posted: '5 days ago',
-    deadline: '2024-02-22',
-    description: 'Analyze large datasets to drive business decisions.',
-    requirements: ['SQL expertise', 'Python/R', 'Statistical knowledge', 'B.Tech/B.E preferred'],
+    id: "4",
+    title: "Data Analyst",
+    company: "Flipkart",
+    companyLogo: "F",
+    location: "Bangalore, India",
+    type: "full-time",
+    salary: "₹12-18 LPA",
+    posted: "5 days ago",
+    deadline: "2024-02-22",
+    description: "Analyze large datasets to drive business decisions.",
+    requirements: [
+      "SQL expertise",
+      "Python/R",
+      "Statistical knowledge",
+      "B.Tech/B.E preferred",
+    ],
     applicants: 156,
     matchScore: 78,
-    status: 'open',
-    tags: ['SQL', 'Python', 'Tableau', 'Statistics'],
+    status: "open",
+    tags: ["SQL", "Python", "Tableau", "Statistics"],
   },
   {
-    id: '5',
-    title: 'Frontend Developer Intern',
-    company: 'Razorpay',
-    companyLogo: 'R',
-    location: 'Remote',
-    type: 'internship',
-    salary: '₹50K/month',
-    posted: '1 day ago',
-    deadline: '2024-02-10',
-    description: 'Build beautiful and performant payment interfaces.',
-    requirements: ['React knowledge', 'CSS/Tailwind', 'Currently enrolled in college', 'Portfolio required'],
+    id: "5",
+    title: "Frontend Developer Intern",
+    company: "Razorpay",
+    companyLogo: "R",
+    location: "Remote",
+    type: "internship",
+    salary: "₹50K/month",
+    posted: "1 day ago",
+    deadline: "2024-02-10",
+    description: "Build beautiful and performant payment interfaces.",
+    requirements: [
+      "React knowledge",
+      "CSS/Tailwind",
+      "Currently enrolled in college",
+      "Portfolio required",
+    ],
     applicants: 98,
     matchScore: 95,
-    status: 'shortlisted',
-    tags: ['React', 'TypeScript', 'Tailwind', 'UI/UX'],
+    status: "shortlisted",
+    tags: ["React", "TypeScript", "Tailwind", "UI/UX"],
   },
 ];
 
 const placementStats = {
   totalOffers: 156,
-  averagePackage: '₹18.5 LPA',
-  highestPackage: '₹45 LPA',
+  averagePackage: "₹18.5 LPA",
+  highestPackage: "₹45 LPA",
   companiesVisited: 42,
 };
 
 export default function Placements() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [jobType, setJobType] = useState('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [jobType, setJobType] = useState("all");
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   const filteredJobs = jobs.filter((job) => {
     const matchesSearch =
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.company.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesType = jobType === 'all' || job.type === jobType;
+    const matchesType = jobType === "all" || job.type === jobType;
     return matchesSearch && matchesType;
   });
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'open':
-        return 'bg-success/10 text-success border-success/20';
-      case 'applied':
-        return 'bg-primary/10 text-primary border-primary/20';
-      case 'shortlisted':
-        return 'bg-warning/10 text-warning border-warning/20';
-      case 'closed':
-        return 'bg-muted text-muted-foreground';
+      case "open":
+        return "bg-success/10 text-success border-success/20";
+      case "applied":
+        return "bg-primary/10 text-primary border-primary/20";
+      case "shortlisted":
+        return "bg-warning/10 text-warning border-warning/20";
+      case "closed":
+        return "bg-muted text-muted-foreground";
       default:
-        return 'bg-muted text-muted-foreground';
+        return "bg-muted text-muted-foreground";
     }
   };
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'text-success';
-    if (score >= 75) return 'text-primary';
-    if (score >= 60) return 'text-warning';
-    return 'text-muted-foreground';
+    if (score >= 90) return "text-success";
+    if (score >= 75) return "text-primary";
+    if (score >= 60) return "text-warning";
+    return "text-muted-foreground";
   };
 
   return (
@@ -188,10 +215,14 @@ export default function Placements() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Placement Portal</h1>
-          <p className="text-muted-foreground mt-1">Find your dream job opportunities</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            Placement Portal
+          </h1>
+          <p className="text-muted-foreground mt-1">
+            Find your dream job opportunities
+          </p>
         </div>
-        <Button onClick={() => window.location.href = '/my-applications'}>
+        <Button onClick={() => (window.location.href = "/my-applications")}>
           <Briefcase className="w-4 h-4 mr-2" />
           My Applications
         </Button>
@@ -210,7 +241,9 @@ export default function Placements() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Offers</p>
-              <p className="text-2xl font-bold text-foreground">{placementStats.totalOffers}</p>
+              <p className="text-2xl font-bold text-foreground">
+                {placementStats.totalOffers}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -227,7 +260,9 @@ export default function Placements() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Avg Package</p>
-              <p className="text-2xl font-bold text-foreground">{placementStats.averagePackage}</p>
+              <p className="text-2xl font-bold text-foreground">
+                {placementStats.averagePackage}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -244,7 +279,9 @@ export default function Placements() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Highest Package</p>
-              <p className="text-2xl font-bold text-foreground">{placementStats.highestPackage}</p>
+              <p className="text-2xl font-bold text-foreground">
+                {placementStats.highestPackage}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -261,7 +298,9 @@ export default function Placements() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Companies</p>
-              <p className="text-2xl font-bold text-foreground">{placementStats.companiesVisited}</p>
+              <p className="text-2xl font-bold text-foreground">
+                {placementStats.companiesVisited}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -315,18 +354,28 @@ export default function Placements() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-semibold text-foreground">{job.title}</h3>
+                        <h3 className="font-semibold text-foreground">
+                          {job.title}
+                        </h3>
                         <Badge className={getStatusColor(job.status)}>
-                          {job.status.charAt(0).toUpperCase() + job.status.slice(1)}
+                          {job.status.charAt(0).toUpperCase() +
+                            job.status.slice(1)}
                         </Badge>
                       </div>
                       <p className="text-primary font-medium">{job.company}</p>
                     </div>
                     <div className="text-right hidden lg:block">
-                      <div className={cn('text-2xl font-bold', getMatchColor(job.matchScore))}>
+                      <div
+                        className={cn(
+                          "text-2xl font-bold",
+                          getMatchColor(job.matchScore)
+                        )}
+                      >
                         {job.matchScore}%
                       </div>
-                      <p className="text-xs text-muted-foreground">Match Score</p>
+                      <p className="text-xs text-muted-foreground">
+                        Match Score
+                      </p>
                     </div>
                   </div>
 
@@ -366,11 +415,14 @@ export default function Placements() {
 
                 {/* Actions */}
                 <div className="flex lg:flex-col gap-2 shrink-0">
-                  <Button onClick={() => window.location.href = `/placements/${job.id}`}>
+                  <Button
+                    onClick={() =>
+                      (window.location.href = `/placements/${job.id}`)
+                    }
+                  >
                     View Details
                     <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
-                  
                 </div>
               </div>
             </div>
@@ -382,7 +434,9 @@ export default function Placements() {
         <div className="text-center py-12">
           <Briefcase className="w-12 h-12 mx-auto text-muted-foreground/50 mb-4" />
           <h3 className="font-medium text-foreground mb-1">No jobs found</h3>
-          <p className="text-sm text-muted-foreground">Try adjusting your search filters</p>
+          <p className="text-sm text-muted-foreground">
+            Try adjusting your search filters
+          </p>
         </div>
       )}
     </div>
