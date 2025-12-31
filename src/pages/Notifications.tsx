@@ -219,7 +219,10 @@ export default function Notifications() {
                         ? 'bg-card hover:bg-secondary/50' 
                         : 'bg-secondary/50 hover:bg-secondary'
                     )}
-                    onClick={() => markAsRead(notification.id)}
+                    onClick={() => {
+                      markAsRead(notification.id);
+                      window.location.href = `/notifications/${notification.id}`;
+                    }}
                   >
                     <div className={cn('p-2 rounded-full border', getTypeStyles(notification.type))}>
                       <Bell className="w-4 h-4" />

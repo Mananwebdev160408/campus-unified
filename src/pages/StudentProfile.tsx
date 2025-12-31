@@ -51,7 +51,10 @@ export function StudentProfile() {
             <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground text-3xl font-bold">
               AJ
             </div>
-            <button className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center hover:bg-secondary transition-colors">
+            <button 
+              className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center hover:bg-secondary transition-colors"
+              onClick={() => window.location.href = '/settings'}
+            >
               <Edit2 className="w-4 h-4 text-muted-foreground" />
             </button>
           </div>
@@ -124,7 +127,7 @@ export function StudentProfile() {
               <div className="card-elevated p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold text-foreground">Personal Information</h2>
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" onClick={() => window.location.href = '/settings'}>
                     <Edit2 className="w-4 h-4" />
                     Edit
                   </Button>
