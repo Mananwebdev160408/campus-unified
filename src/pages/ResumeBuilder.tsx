@@ -119,7 +119,7 @@ export default function ResumeBuilder() {
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData);
   const [activeTab, setActiveTab] = useState('preview');
 
-  const verificationUrl = 'https://unierp.edu/verify/STU2021001';
+  const verificationUrl = 'https://uniflow.edu/verify/STU2021001';
 
   return (
     <div className="space-y-6">
