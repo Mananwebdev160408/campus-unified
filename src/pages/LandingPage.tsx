@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   GraduationCap,
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import ThemeToggler from "@/components/ThemeToggler";
 
 const container = {
@@ -28,6 +29,47 @@ const container = {
     transition: { staggerChildren: 0.1 },
   },
 };
+
+const testimonials = [
+  
+  {
+    quote:
+      "Our institution has always focused on academic excellence and holistic development. This platform has strengthened our ability to support students and faculty alike.",
+    name: "Dr. Rajesh Mehra",
+    designation: "Chairman, Horizon Institute of Technology",
+    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=3540&auto=format&fit=crop"
+  },
+  {
+    quote:
+      "The modernization initiatives we’ve implemented over the last few years have reshaped the learning environment across our campus.",
+    name: "Prof. Anita Sharma",
+    designation: "Chairperson, Crestwood College of Engineering",
+    src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=3540&auto=format&fit=crop"
+  },
+  {
+    quote:
+      "Our college remains committed to innovation, research, and student success. The collaborative ecosystem we’re building is truly transformative.",
+    name: "Dr. Arvind Nair",
+    designation: "Chairman, Silverstone University",
+    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=3540&auto=format&fit=crop"
+  },
+  {
+    quote:
+      "With strong academic programs and industry partnerships, we are preparing students for real-world challenges and meaningful careers.",
+    name: "Mrs. Kavita Rao",
+    designation: "Chairperson, Green Valley Management College",
+    src: "https://images.unsplash.com/photo-1580584128409-9b5c3b3c4b9e?q=80&w=3540&auto=format&fit=crop"
+  },
+  {
+    quote:
+      "Our campus culture promotes leadership, discipline, and innovation. We take pride in nurturing the next generation of professionals.",
+    name: "Mr. Prakash Iyer",
+    designation: "Chairman, Riverside College of Science & Arts",
+    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=3540&auto=format&fit=crop"
+  }
+
+
+];
 
 const item = {
   hidden: { opacity: 0, y: 20 },
@@ -355,23 +397,23 @@ export function LandingPage() {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between w-1/3 items-center">
-          <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className=" px-10 flex flex-col gap-3 mb-7 justify-center text-left "
-          >
-            <h1 className="text-7xl font-bold  text-accent">
-              Testimonials
-            </h1>
-            <h2 className="text-2xl sm:text-4xl font-bold text-foreground mt-2">
-              Loved by Institutions Worldwide
-            </h2>
-          </motion.div>
-
-          {/* <div className="grid md:grid-cols-3 gap-6">
+        <div className="flex justify-between gap-7 items-center">
+          <div className="max-w-7xl scale-125 w-1/3 mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className=" px-10 flex flex-col  gap-3 mb-7 justify-center text-left "
+            >
+              <h1 className="text-7xl font-bold  text-accent">Testimonials</h1>
+              <span className="bg-gradient-to-r from-black via-blue-600 to-black h-[2px] " ></span>
+              <h2 className="text-2xl sm:text-4xl font-bold text-foreground mt-2">
+                Loved by Institutions Worldwide
+              </h2>
+            </motion.div>
+            <div>
+              {/* <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 quote:
@@ -423,13 +465,17 @@ export function LandingPage() {
               </motion.div>
             ))}
           </div> */}
-          <div>
-            
+            </div>
           </div>
-        </div>
-        <div className="flex-1 border" >
-
-        </div>
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          
+          >
+            <AnimatedTestimonials testimonials={testimonials} />
+          </motion.div>
         </div>
       </section>
 
@@ -481,8 +527,6 @@ export function LandingPage() {
           </div>
         </div>
       </section>
-
-      
 
       {/* Footer */}
       <footer className="border-t border-border py-12 px-4 sm:px-6 lg:px-8">
