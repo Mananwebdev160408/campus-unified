@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Users,
   GraduationCap,
@@ -44,14 +45,18 @@ export function CollegeAdminDashboard() {
           <p className="text-muted-foreground">Manage your college operations and analytics</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
-            <BarChart3 className="w-4 h-4" />
-            Reports
-          </Button>
-          <Button variant="gradient">
-            <Users className="w-4 h-4" />
-            Add User
-          </Button>
+          <Link to="/college/reports">
+            <Button variant="outline">
+              <BarChart3 className="w-4 h-4" />
+              Reports
+            </Button>
+          </Link>
+          <Link to="/college/add-user">
+            <Button variant="gradient">
+              <Users className="w-4 h-4" />
+              Add User
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -96,10 +101,12 @@ export function CollegeAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Department Overview</h2>
-              <Button variant="ghost" size="sm">
-                View All
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Button>
+              <Link to="/college/departments">
+                <Button variant="ghost" size="sm">
+                  View All
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
             </div>
             <div className="space-y-3">
               <DepartmentRow
@@ -133,10 +140,12 @@ export function CollegeAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Fee Collection Status</h2>
-              <Button variant="ghost" size="sm">
-                Financial Report
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Button>
+              <Link to="/college/financial-report">
+                <Button variant="ghost" size="sm">
+                  Financial Report
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
             </div>
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div className="text-center p-4 rounded-lg bg-success/10">
@@ -165,10 +174,12 @@ export function CollegeAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-foreground">Recent Admissions</h2>
-              <Button variant="ghost" size="sm">
-                View All
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Button>
+              <Link to="/college/admissions">
+                <Button variant="ghost" size="sm">
+                  View All
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
             </div>
             <div className="space-y-3">
               <AdmissionRow
@@ -282,22 +293,30 @@ export function CollegeAdminDashboard() {
           <motion.div variants={item} className="card-elevated p-6">
             <h2 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h2>
             <div className="grid grid-cols-2 gap-2">
-              <Button variant="outline" size="sm" className="justify-start">
-                <Users className="w-4 h-4" />
-                Add Faculty
-              </Button>
-              <Button variant="outline" size="sm" className="justify-start">
-                <BookOpen className="w-4 h-4" />
-                New Course
-              </Button>
-              <Button variant="outline" size="sm" className="justify-start">
-                <Calendar className="w-4 h-4" />
-                Schedule
-              </Button>
-              <Button variant="outline" size="sm" className="justify-start">
-                <CreditCard className="w-4 h-4" />
-                Fee Setup
-              </Button>
+              <Link to="/college/faculty/add">
+                <Button variant="outline" size="sm" className="justify-start w-full">
+                  <Users className="w-4 h-4" />
+                  Add Faculty
+                </Button>
+              </Link>
+              <Link to="/college/add-course">
+                <Button variant="outline" size="sm" className="justify-start w-full">
+                  <BookOpen className="w-4 h-4" />
+                  New Course
+                </Button>
+              </Link>
+              <Link to="/college/schedule">
+                <Button variant="outline" size="sm" className="justify-start w-full">
+                  <Calendar className="w-4 h-4" />
+                  Schedule
+                </Button>
+              </Link>
+              <Link to="/college/fee-setup">
+                <Button variant="outline" size="sm" className="justify-start w-full">
+                  <CreditCard className="w-4 h-4" />
+                  Fee Setup
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
